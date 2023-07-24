@@ -114,3 +114,17 @@ transferEurToUsd(true, 500, 1.05);
 # Типизация объектов и деструктуризация.
 
 <h2>Объекты в TypeScript</h2>
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/obj1.png)
+
+<br>
+
+<h2>Деструктуризация объектов</h2>
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/obj2.png)
+
+<hr>
+<br>
+<br>
+
+# Массивы в typescript.
