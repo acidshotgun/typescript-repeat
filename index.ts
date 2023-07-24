@@ -8,23 +8,33 @@ const isBirthdayData: boolean = true;
 let ageData: number = 17;
 const userNameData: string = "John";
 
-// function logBrtMsg(isBirthday: boolean, userName: string, age: number): string {
-//     if (isBirthday) {
-//         return `Congrats ${userName.toLocaleUpperCase()}, ${age + 1}`;
-//     } else {
-//         return "Error";
-//     }
-// }
-const logBrtMsg = (
-    isBirthday: boolean,
-    userName: string,
-    age: number
-): string => {
-    if (isBirthday) {
-        return `Congrats ${userName.toLocaleUpperCase()}, ${age + 1}`;
-    } else {
-        return "Error";
-    }
+const userData = {
+    isBirthdayData: true,
+    ageData: 17,
+    userNameData: "John",
+    messages: {
+        error: "error",
+    },
 };
 
-console.log(logBrtMsg(isBirthdayData, userNameData, ageData));
+function logBrtMsg({
+    isBirthdayData,
+    ageData,
+    userNameData,
+    messages: { error },
+}: {
+    isBirthdayData: boolean;
+    ageData: number;
+    userNameData: string;
+    messages: {
+        error: string;
+    };
+}): string {
+    if (isBirthdayData) {
+        return `Congrats ${userNameData.toLocaleUpperCase()}, ${ageData + 1}`;
+    } else {
+        return error;
+    }
+}
+
+console.log(logBrtMsg(userData));
