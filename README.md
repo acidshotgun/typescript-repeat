@@ -128,3 +128,7 @@ transferEurToUsd(true, 500, 1.05);
 <br>
 
 # Массивы в typescript.
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/array1.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/array2.png)
