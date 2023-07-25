@@ -212,3 +212,19 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 
 # Tuples (кортежи).
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/tupple.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/tupple2.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/tupple3.png)
+
+<hr>
+<br>
+<br>
+
+# Union (Объединение).
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union1.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union2.png)
