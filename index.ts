@@ -40,7 +40,8 @@ function logBrtMsg({
 console.log(logBrtMsg(userData));
 
 //////////////////////////////////////////////////////////////////////
-
+// Затипизировать
+// Два объекта с использованием воды/энергии.
 const electricityUserData = {
     readings: 95,
     units: "kWt",
@@ -52,11 +53,14 @@ const waterUserData = {
     units: "m3",
 };
 
+// Тарифы за энергию.
 const elRate: number = 0.45;
 const wRate: number = 2;
 
+// Массив с счетами за энергрию/воду.
 const monthPayments: number[] = [0, 0]; // [electricity, water]
 
+// Ф-я вычисляет месячную плату и записывает зн-я в monthPayments.
 const calculatePayments = (
     elData: {
         readings: number;
@@ -81,6 +85,7 @@ const calculatePayments = (
 
 calculatePayments(electricityUserData, waterUserData, elRate, wRate);
 
+// Ф-я выставляет счет.
 const sendInvoice = (
     monthPayments: number[],
     electricityUserData: {
