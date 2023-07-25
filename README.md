@@ -228,3 +228,15 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union1.png)
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union2.png)
+
+<hr>
+<br>
+<br>
+
+# Сужение типов (Narrowing).
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing1.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing2.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing3.png)
