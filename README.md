@@ -240,3 +240,21 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing2.png)
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing3.png)
+
+<hr>
+<br>
+<br>
+
+# Примитивные литеральные типы (Literal types).
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/lit1.png)
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/lit2.png)
+
+<hr>
+<br>
+<br>
+
+# Псевдонимы типов (Type aliases).
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/typeAliases1.png)
