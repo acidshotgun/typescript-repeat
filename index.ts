@@ -59,3 +59,16 @@ function printMessage(msg: string | number): void {
 }
 
 printMessage("Hi");
+
+////////////
+
+const startServer = (
+  protocol: "http" | "https",
+  port: 3000 | 3001
+): "Server started" => {
+  console.log(`Server started on ${protocol}://server:${port}`);
+
+  return "Server started";
+};
+
+startServer("http", 3000);
