@@ -379,3 +379,35 @@ const startServer: TypeStartServer = (
   return "Server started";
 };
 ```
+
+<hr>
+<br>
+<br>
+
+# Interface.
+
+- [x] Интерфейс - это еще один тип в TS, который позволяет синтаксически записать шаблон того , который будет создан
+
+- [x] Интерфейс создается при помощи ключевого слова interface, имени (начиная с I) с большой буквы и раскрытия фигурных скобок:
+
+- [x] В свойствах объекта может быть что угодно: литералы, другие типы и тд. При замене type на interface в коде ничего не сломается. Они действительно очень похожи. 
+
+```typescript
+// Интерфейс, описывающий объект
+interface IConfig {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name?: string;
+}
+
+const serverConfig: IConfig = {
+  protocol: "http",
+  port: 3001,
+  name: "moskit11111",
+};
+
+const backupConfig: IConfig = {
+  protocol: "https",
+  port: 3000,
+};
+```
