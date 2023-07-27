@@ -258,3 +258,124 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 # Псевдонимы типов (Type aliases).
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/typeAliases1.png)
+
+<br>
+<hr>
+<hr>
+<hr>
+
+# РАЗДЕЛ 3 НЕОБХОДИМЫЙ УРОВЕНЬ.
+
+# Type и пересечение типов. (Продвинутый type)
+
+<h3>Type:</h3>
+
+- [x] Иногда наши литеральные типы могут содержать много значений, иногда мы хотим их переиспользовать в разных частях кода. В таких ситуациях хотелось бы вынести такой код в отдельную сущность по типу переменной. Этим и занимаются псевдонимы:
+
+```typescript
+// Создаем псевдоним типа для использования/переиспользования далее.
+type TypeAnimationTiming = "ease" | "ease-out" | "ease-in";
+type TypeAnimationID = string | number;
+
+// Типизируем аргументы ф-ии с помощью псевдонимов типов.
+function createAnimation(
+  id: TypeAnimationID,
+  animName: string,
+  timing: TypeAnimationTiming = "ease",
+  duration: number
+): void {}
+```
+
+<br>
+    
+<h3>Продвинутый type</h3>
+
+- [x] Можно создавать type, который содержит описание объекта, а не только отдельные литералы. Это позволит нам указывать объектам, что они должны быть одной формы (одного формата, object shape):
+
+- [x] Такие значения удобнее читать, можно переиспользовать и поместить любые типы в псевдоним. Их можно создавать внутри функций, внутри методов классов или объектов, внутри отдельных модулей и тп. Когда вам это нужно.
+В type можно помещать и объекты.
+
+- [x] После компиляции они исчезают, так что эта возможность существует только в TS.
+
+```typescript
+// Создание type
+// 2 обязательных и name - необязательный
+
+// Теперь type с именем TypeConfig можно использовать для аннотирования других объектов.
+// Если они не будут соответствовать этой форме - будет ошибка.
+// В свойствах объекта внутри type может быть что угодно (литералы, типы, объекты и тп.)
+type TypeConfig = {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name?: string;
+};
+
+// Описываем объекты при помощи созданного типа TypeConfig
+const serverConfig: TypeConfig = {
+  protocol: "http",
+  port: 3001,
+};
+
+const backupConfig: TypeConfig = {
+  protocol: "https",
+  port: 3000,
+  name: "store",
+};
+```
+
+<br>
+
+<h3>Type Intersection(пересечение типов)</h3>
+
+- [x] Нам часто приходится комбинировать типы для удобного и быстрого создания нужных нам. Иногда мы не хотим дублировать код (принцип DRY), иногда типы приходят нам из сторонней библиотеки или файла. В этих и других случаях нам понадобится оператор пересечения (&).
+
+- [x] Благодаря оператору пересечения (intersection, &) мы скомбинировали два типа и получили тип ConfigWithRole. Он содержит все свойства из объединенных типов. Теперь все три type можно использовать в коде.
+
+```typescript
+type TypeConfig = {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name?: string;
+};
+
+// Добавим еще один тип с ролью
+type TypeRole = {
+  role: string;
+};
+
+// Создадим тип на основе двух предыдущих.
+// Этот тип объеденит в себе все описания двух прошлых.
+type TypeConfigWithRole = TypeConfig & TypeRole;
+
+// Описываем объект с помощью пересеченных типов.
+const serverConfig: TypeConfigWithRole = {
+  protocol: "http",
+  port: 3001,
+  role: "admin",
+  name: "moskit11111",
+};
+```
+
+<br>
+
+<h3>Type у функций</h3>
+
+- [x] В отдельный type можно выносить и описание функции:
+
+```typescript
+// Тип описания ф-ии с описание входных параметров.
+type TypeStartServer = (
+  protocol: "http" | "https",
+  port: 3000 | 3001
+) => string;
+
+// Импользуем тип.
+const startServer: TypeStartServer = (
+  protocol: "http" | "https",
+  port: 3000 | 3001
+): "Server started" => {
+  console.log(`Server started on ${protocol}://server:${port}`);
+
+  return "Server started";
+};
+```
