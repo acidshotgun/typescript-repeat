@@ -533,4 +533,11 @@ const style: IStyle = {
 - [x] За счет описания структуры можно создавать интересные паттерны поведения кода в разных ситуациях.
 - [x] Главное - во время написания есть подсказки и предупреждения об ошибках для исправления во время разработки.
 
-- [ ] 
+<hr>
+<br>
+<br>
+
+# Различия между type и interface.
+
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff1.png)
+![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff2.png)
