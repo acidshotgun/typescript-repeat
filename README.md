@@ -386,6 +386,8 @@ const startServer: TypeStartServer = (
 
 # Interface.
 
+<h3>База:</h3>
+
 - [x] Интерфейс - это еще один тип в TS, который позволяет синтаксически записать шаблон того , который будет создан
 
 - [x] Интерфейс создается при помощи ключевого слова interface, имени (начиная с I) с большой буквы и раскрытия фигурных скобок:
@@ -411,3 +413,124 @@ const backupConfig: IConfig = {
   port: 3000,
 };
 ```
+
+<br>
+
+<h3>Объединение интерфейсов:</h3>
+
+- [x] Для комбинации нескольких интерфейсов и получения нового используется ключевое слово extends:
+- [x] Полученый интерфейс будет иметь все свойства указаных + можно добавлять новые внутри фигурных скобок 
+
+```typescript
+// Интерфейс, описывающий объект.
+interface IConfig {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name?: string;
+}
+
+// Интерфейс роли.
+interface IRole {
+  role: string;
+}
+
+// Интерфейс, наследующий св-ва у IConfig и IRole одновременно.
+// Плюс можем добавить доп.
+interface IConfigRole extends IConfig, IRole {
+  rights: "all" | "read";
+}
+
+const serverConfig: IConfig = {
+  protocol: "http",
+  port: 3001,
+  name: "moskit11111",
+};
+
+const backupConfig: IConfigRole = {
+  protocol: "https",
+  port: 3000,
+  role: "admin",
+  name: "acidshotgun",
+  rights: "all",
+};
+```
+
+<br>
+
+<h3>Описание методов объекста:</h3>
+
+- [x] И типы и интерфейсы могут описывать методы объектов.
+
+```typescript
+// Интерфейс, описывающий объект + описали метод.
+interface IConfig {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name: string;
+  role: "admin" | "user";
+  rights: "all" | "read";
+  // Метод с параметрами.
+  log: (msg: string) => void;
+}
+
+// Добавили в объект метод log.
+const serverConfig: IConfig = {
+  protocol: "http",
+  port: 3001,
+  name: "moskit11111",
+  role: "admin",
+  rights: "all",
+  log: (msg: string): void => console.log(msg),
+};
+
+// Типизировали входящий аргумент для метода log.
+// Если мы не знаем какой аргумент будет приходить в ф-ю, то можно написать:
+//    log: Function
+// Но это не круто
+// Всегда нужно типизировать.
+const startServer = (
+  protocol: "http" | "https",
+  port: 3000 | 3001,
+  log: (msg: string) => void
+): "Server started" => {
+  // Передали сообщения в метод log.
+  log(`Server started on ${protocol}://server:${port}`);
+
+  return "Server started";
+};
+
+// Вызываем в ф-ии еще и наш метод.
+startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
+```
+
+<br>
+
+<h3>Когда мы не знаем, что будет в объекте.</h3>
+
+- [x] Если мы не знаем, что будет в объекте, но знаем что это будет один тип данных можно воспользоваться след синтаксисом.
+
+```typescript
+// Ключи - строка, зн-е - строка.
+// И тд.
+interface IStyle {
+  [key: string]: string;
+}
+
+const style: IStyle = {
+  position: "absolute",
+  padding: "25px",
+  border: "1px solid black",
+  borderRadius: 50, // - ошибка(number)
+};
+```
+
+<br>
+
+<h3>ИТОГ:</h3>
+
+- [x] Интерфейсы и типы нужны для того, чтобы описывать объекты(пока что) - что в них будет содержаться и в каком кол-ве.
+- [x] Интерфейсы и типы немного отличаются по синтаксису.
+- [x] За счет описания структуры можно создавать интересные паттерны поведения кода в разных ситуациях.
+- [x] Главное - во время написания есть подсказки и предупреждения об ошибках для исправления во время разработки.
+
+- [ ] 
