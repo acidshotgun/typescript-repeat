@@ -1,74 +1,39 @@
-// let userName: string = "Ivan";
+// Интерфейс, описывающий объект + описали метод.
+interface IConfig {
+  protocol: "http" | "https";
+  port: 3000 | 3001;
+  name: string;
+  role: "admin" | "user";
+  rights: "all" | "read";
+  // Метод с параметрами.
+  log: (msg: string) => void;
+}
 
-// userName = `pisapopa`;
-
-// console.log(userName);
-
-const isBirthdayData: boolean = true;
-let ageData: number = 17;
-const userNameData: string = "John";
-
-const userData = {
-  isBirthdayData: true,
-  ageData: 17,
-  userNameData: "John",
-  messages: {
-    error: "error",
-  },
+// Добавили в объект метод log.
+const serverConfig: IConfig = {
+  protocol: "http",
+  port: 3001,
+  name: "moskit11111",
+  role: "admin",
+  rights: "all",
+  log: (msg: string): void => console.log(msg),
 };
 
-function logBrtMsg({
-  isBirthdayData,
-  ageData,
-  userNameData,
-  messages: { error },
-}: {
-  isBirthdayData: boolean;
-  ageData: number;
-  userNameData: string;
-  messages: {
-    error: string;
-  };
-}): string {
-  if (isBirthdayData) {
-    return `Congrats ${userNameData.toLocaleUpperCase()}, ${ageData + 1}`;
-  } else {
-    return error;
-  }
-}
-
-console.log(logBrtMsg(userData));
-
-// function printMessage(msg: string[] | number | boolean): void {
-//   if (Array.isArray(msg)) {
-//     msg.forEach((element) => console.log(element));
-//   } else if (typeof msg === "number") {
-//     console.log(msg * 10);
-//   } else {
-//     console.log(msg);
-//   }
-// }
-
-function printMessage(msg: string | number): void {
-  if (typeof msg === "string") {
-    console.log(msg.toUpperCase());
-  } else {
-    console.log(msg * 10);
-  }
-  console.log(msg);
-}
-
-printMessage("Hi");
-
-////////////
-
+// Типизировали входящий аргумент для метода log.
+// Если мы не знаем какой аргумент будет приходить в ф-ю, то можно написать:
+//    log: Function
+// Но это не круто
+// Всегда нужно типизировать.
 const startServer = (
   protocol: "http" | "https",
-  port: 3000 | 3001
+  port: 3000 | 3001,
+  log: (msg: string) => void
 ): "Server started" => {
-  console.log(`Server started on ${protocol}://server:${port}`);
+  // Передали сообщения в метод log.
+  log(`Server started on ${protocol}://server:${port}`);
 
   return "Server started";
 };
 
-startServer("http", 3000);
+// Вызываем в ф-ии еще и наш метод.
+startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
