@@ -1,39 +1,75 @@
-// Интерфейс, описывающий объект + описали метод.
-interface IConfig {
-  protocol: "http" | "https";
-  port: 3000 | 3001;
-  name: string;
-  role: "admin" | "user";
-  rights: "all" | "read";
-  // Метод с параметрами.
-  log: (msg: string) => void;
+// структура данных склада с одеждой
+
+interface ClothesWarehouse {
+  jackets: "empty" | number;
+  hats: "empty" | number;
+  socks: "empty" | number;
+  pants: "empty" | number;
 }
 
-// Добавили в объект метод log.
-const serverConfig: IConfig = {
-  protocol: "http",
-  port: 3001,
-  name: "moskit11111",
-  role: "admin",
-  rights: "all",
-  log: (msg: string): void => console.log(msg),
+// структура данных склада с канцтоварами
+
+interface StationeryWarehouse {
+  scissors: "empty" | number;
+  paper: "empty" | boolean;
+}
+
+// структура данных склада с бытовой техникой
+
+interface AppliancesWarehouse {
+  dishwashers: "empty" | number;
+  cookers: "empty" | number;
+  mixers: "empty" | number;
+}
+
+// общая структура данных, наследует все данные из трех выше
+// + добавляет свои
+
+interface TotalWarehouse
+  extends ClothesWarehouse,
+    StationeryWarehouse,
+    AppliancesWarehouse {
+  deficit?: boolean;
+  date?: Date;
+}
+
+// главный объект со всеми данными, должен подходить под формат TotalWarehouse
+
+const totalData: TotalWarehouse = {
+  jackets: 5,
+  hats: "empty",
+  socks: "empty",
+  pants: 15,
+  scissors: 15,
+  paper: true,
+  dishwashers: 3,
+  cookers: "empty",
+  mixers: 14,
 };
 
-// Типизировали входящий аргумент для метода log.
-// Если мы не знаем какой аргумент будет приходить в ф-ю, то можно написать:
-//    log: Function
-// Но это не круто
-// Всегда нужно типизировать.
-const startServer = (
-  protocol: "http" | "https",
-  port: 3000 | 3001,
-  log: (msg: string) => void
-): "Server started" => {
-  // Передали сообщения в метод log.
-  log(`Server started on ${protocol}://server:${port}`);
+// Реализуйте функцию, которая принимает в себя главный объект totalData нужного формата
+// и возвращает всегда строку
+// Функция должна отфильтровать данные из объекта и оставить только те названия товаров, у которых значение "empty"
+// и поместить их в эту строку. Если таких товаров нет - возвращается другая строка (см ниже)
 
-  return "Server started";
-};
+// С данным объектом totalData строка будет выглядеть:
+// "We need this items: hats, socks, cookers"
+// Товары через запятую, в конце её не должно быть. Пробел после двоеточия, в конце строки его нет.
 
-// Вызываем в ф-ии еще и наш метод.
-startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
+function printReport(data: TotalWarehouse): string {
+  const filteredData: string[] = [];
+
+  for (let key in data) {
+    if (data[key as keyof TotalWarehouse] === "empty") {
+      filteredData.push(key);
+    }
+  }
+
+  if (filteredData.length > 0) {
+    return `We need this items: ${filteredData.join(", ")}.`;
+  } else {
+    return "Everything fine";
+  }
+}
+
+console.log(printReport(totalData));
