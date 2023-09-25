@@ -1,6 +1,6 @@
 # typescript-repeat
 
-# Общие сведения о typescript
+<h1>Общие сведения о typescript </h1>
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/111.png)
 
