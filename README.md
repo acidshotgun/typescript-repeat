@@ -266,7 +266,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 
 # РАЗДЕЛ 3 НЕОБХОДИМЫЙ УРОВЕНЬ.
 
-<h2>23. Type и пересечение типов. (Продвинутый type)</h2> 
+<h2>23. Type и пересечение типов. (Продвинутый type)</h2>
 
 <h3>Type:</h3>
 
@@ -537,7 +537,7 @@ const style: IStyle = {
 <br>
 <br>
 
-# Различия между type и interface.
+<h2>Различия между type и interface.</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff1.png)
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff2.png)
