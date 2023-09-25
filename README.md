@@ -266,7 +266,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 
 # РАЗДЕЛ 3 НЕОБХОДИМЫЙ УРОВЕНЬ.
 
-<h2>Type и пересечение типов. (Продвинутый type)</h2> 
+<h2>23. Type и пересечение типов. (Продвинутый type)</h2> 
 
 <h3>Type:</h3>
 
@@ -384,7 +384,7 @@ const startServer: TypeStartServer = (
 <br>
 <br>
 
-<h2>Interface.</h2> 
+<h2>24. Interface.</h2> 
 
 <h3>База:</h3>
 
