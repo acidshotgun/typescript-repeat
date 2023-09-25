@@ -211,7 +211,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Tuples (кортежи).
+<h2>17. Tuples (кортежи).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/tupple.png)
 
@@ -223,7 +223,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Union (Объединение).
+<h2>18. Union (Объединение)</h2> .
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union1.png)
 
@@ -233,7 +233,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Сужение типов (Narrowing).
+<h2>19. Сужение типов (Narrowing).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing1.png)
 
@@ -245,7 +245,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Примитивные литеральные типы (Literal types).
+<h2>20. Примитивные литеральные типы (Literal types).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/lit1.png)
 
@@ -255,7 +255,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Псевдонимы типов (Type aliases).
+<h2>21. Псевдонимы типов (Type aliases).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/typeAliases1.png)
 
