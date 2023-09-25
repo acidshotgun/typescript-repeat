@@ -266,7 +266,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 
 # РАЗДЕЛ 3 НЕОБХОДИМЫЙ УРОВЕНЬ.
 
-# Type и пересечение типов. (Продвинутый type)
+<h2>Type и пересечение типов. (Продвинутый type)</h2> 
 
 <h3>Type:</h3>
 
