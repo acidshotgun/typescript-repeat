@@ -1,6 +1,6 @@
 # typescript-repeat
 
-# Общие сведения о typescript
+<h2>Общие сведения о typescript </h2>
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/111.png)
 
@@ -54,9 +54,9 @@ never // когда ф-я не заканчивается возвращаемы
 <br>
 <br>
 
-# Использование системы типов в функциях
+<h2>08. Использование системы типов в функциях</h2> 
 
-<h2>Типизация аргументов функций.</h2>
+<h3>- Типизация аргументов функций.</h3>
 
 - [x] По умолчанию, если не указать тип каждого аргумента ф-ии, то **TS** сообщит об ошибке.
 
@@ -64,7 +64,7 @@ never // когда ф-я не заканчивается возвращаемы
 
 <br>
 
-<h2>Типизация возвращаемого значения.</h2>
+<h3>- Типизация возвращаемого значения.</h3>
 
 - [x] Второй ключевой момент любой функции - это возвращаемое значение.
 Если TS будет знать, что именно функция может вернуть, то он сможет
@@ -72,7 +72,7 @@ never // когда ф-я не заканчивается возвращаемы
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/func2.png)
 
-<h2>Практика типизации.</h2>
+<h3>- Практика типизации.</h3>
 
 ```typescript
 // Иммитация JSON курса валюты.
@@ -111,15 +111,15 @@ transferEurToUsd(true, 500, 1.05);
 <br>
 
 
-# Типизация объектов и деструктуризация.
+<h2>14. Типизация объектов и деструктуризация.</h2> 
 
-<h2>Объекты в TypeScript</h2>
+<h3>- Объекты в TypeScript</h3>
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/obj1.png)
 
 <br>
 
-<h2>Деструктуризация объектов</h2>
+<h3>- Деструктуризация объектов</h3>
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/obj2.png)
 
@@ -127,13 +127,13 @@ transferEurToUsd(true, 500, 1.05);
 <br>
 <br>
 
-# Массивы в typescript.
+<h2>15. Массивы в typescript.</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/array1.png)
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/array2.png)
 
-<h3>ПРАКТИКА ДОМАШКА ЗАДАЧА</h3>
+<h3>-ПРАКТИКА ДОМАШКА ЗАДАЧА</h3>
 
 ```typescript
 // Затипизировать 
@@ -211,7 +211,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Tuples (кортежи).
+<h2>17. Tuples (кортежи).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/tupple.png)
 
@@ -223,7 +223,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Union (Объединение).
+<h2>18. Union (Объединение)</h2> .
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/union1.png)
 
@@ -233,7 +233,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Сужение типов (Narrowing).
+<h2>19. Сужение типов (Narrowing).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/Narrowing1.png)
 
@@ -245,7 +245,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Примитивные литеральные типы (Literal types).
+<h2>20. Примитивные литеральные типы (Literal types).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/lit1.png)
 
@@ -255,7 +255,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 <br>
 <br>
 
-# Псевдонимы типов (Type aliases).
+<h2>21. Псевдонимы типов (Type aliases).</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/typeAliases1.png)
 
@@ -266,7 +266,7 @@ console.log(sendInvoice(monthPayments, electricityUserData, waterUserData));
 
 # РАЗДЕЛ 3 НЕОБХОДИМЫЙ УРОВЕНЬ.
 
-# Type и пересечение типов. (Продвинутый type)
+<h2>23. Type и пересечение типов. (Продвинутый type)</h2>
 
 <h3>Type:</h3>
 
@@ -384,7 +384,7 @@ const startServer: TypeStartServer = (
 <br>
 <br>
 
-# Interface.
+<h2>24. Interface.</h2> 
 
 <h3>База:</h3>
 
@@ -537,7 +537,7 @@ const style: IStyle = {
 <br>
 <br>
 
-# Различия между type и interface.
+<h2>Различия между type и interface.</h2> 
 
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff1.png)
 ![](https://github.com/acidshotgun/typescript-repeat/blob/main/img/diffff2.png)
