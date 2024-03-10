@@ -14,6 +14,8 @@
   /*
     РАЗОБРАТЬ
     Они по умолчанию имеют any если явно не указать тип
+
+    Как правило привязки таких типов нет и указывается union => number | null например
   */
   let und: undefined = undefined;
   let nothing: null = null;
