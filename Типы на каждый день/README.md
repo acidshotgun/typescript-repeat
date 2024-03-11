@@ -184,5 +184,80 @@
 
 <h2>Объединения (unions)</h2>
 
+  <h3>+ Базовый пример</h3>
+
 - [ ] `Объединение` - это тип, сформированный из 2 и более типов, представляющий значение, которое может иметь один из этих типов. Типы, входящие в объединение, называются членами (members) объединения.
 
+```typescript
+  // Аргумент может быть либо number либо string
+  const printId = (id: number | string): void => {
+    console.log(`Ваш id: ${id}`);
+  };
+  
+  printId(15); // Верно
+  printId("id_abc1528"); // Верно
+  printId({ myId: "145_adv" }); // Ошибка - тип "Object" не подходит
+  // Argument of type '{ myID: number }' is not assignable to parameter of type 'string | number'.
+```
+
+  <br>
+
+  <h3>+ Работа с объединениями + narrowing (сужение)</h3>
+
+  + В случае с объединениями, TS позволяет делать только такие вещи, которые являются `валидными для каждого члена объединения`.
+  + Например, если у нас имеется объединение `string | number`, мы не сможем использовать методы, которые доступны только для `string`:
+
+  <br>
+
+  - [x] `Сужение (narrowing)` - позволяют при помощи условия определить действия для конкретного типа из нескольких возможных.
+
+  ```typescript
+    // Аргумент может быть либо number либо string
+    const printId = (id: number | string): void => {
+      // Метод работает только со "string"
+      console.log(id.toUpperCase()); // Ошибка
+      //  Property 'toUpperCase' does not exist on type 'number'.
+    };
+  ```
+
+  <br>
+
+  + Решение данной проблемы заключается в `сужении (narrowing)` объединения. Например, TS знает, что только для `string` оператор `typeof` возвращает `'string'`:
+
+  ```typescript
+    // Аргумент может быть либо number либо string
+    const printId = (id: number | string): void => {
+      /*
+        Ф-я выполнит действие в зависимости от типа
+      */
+      if (typeof id === "string") {
+        console.log(id.toUpperCase());
+      } else {
+        console.log(id);
+      }
+    };
+    
+    printId("id_aboba12345"); // ID_ABOBA12345
+    printId(12345); // 12345
+  ```
+
+<br>
+
+  + Другой способ заключается в использовании функции, например `Array.isArray`:
+
+  ```typescript
+    // Аргумент может быть либо number[] либо string
+    const sayHello = (arg: string[] | string): void => {
+      // Если аргумент массив строк
+      if (Array.isArray(arg)) {
+        console.log(`Привет ${arg.join(" и ").toUpperCase()}`);
+        // Если аргумент - просто string
+      } else {
+        console.log(`Привет ${arg}`);
+      }
+    };
+    
+    sayHello(["Саша", "Джамбулат"]); // Привет САША И ДЖАМБУЛАТ
+    sayHello("Саша"); // Привет Саша
+    sayHello([1, 2, 3]); // Ошибка - это массиво типов number
+  ```
