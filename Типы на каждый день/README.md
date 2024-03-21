@@ -473,6 +473,80 @@
 
 ![image](https://github.com/acidshotgun/typescript-repeat/assets/117285472/6083624f-4942-481a-b082-d7b0adce0bd1)
 
+<br>
+
+```typescript
+  /*
+    fetchData ожидает два аргумента
+    url - string
+    method - "GET" | "POST" (литеральный тип)
+  */
+  const fetchData = (url: string, method: "GET" | "POST"): void => {
+    console.log(method);
+  };
+
+  const reqOptions = {
+    url: "https://someurl.com", // string
+    method: "GET", // string (не литеральный)
+  };
+  
+  fetchData("https://my-api/v2/users", "GET"); // OK - типа соответсвтуют
+  /*
+    Ошибка - url (OK), method - (ERROR)
+    reqOptions.method === string
+    fetchData (method) - ожидает "GET" | "POST" (это литеральный тип (не string)) 
+  */
+  fetchData(reqOptions.url, reqOptions.method); // Ошибка
+  
+  /*
+    Тут мы говорим TypeScript,
+    чтобы он рассматривал reqOptions.method не как string
+    а как литерльный тип "GET" | "POST"
+  */
+  fetchData(reqOptions.url, reqOptions.method as "GET" | "POST"); // OK
+```
+
+- [ ] По сути - Это просто просьба того, каким типом считать эту сущность при разработке.
+
+<br>
+
+<h3>+ Альтернативный способ</h3>
+
+- [x] Эту ситуацию можно решить еще двумя другими способами, так жеутверждением типов.
+
+    + `Первый` - утвердить значение еще на этапе объекта:
+     
+    ```typescript
+      const reqOptions = {
+        url: "https://someurl.com", 
+        method: "GET" as const, // Утверждаем как литерал а не как string
+      };
+    ```
+
+    + `Второй` - превратить весь объект в литерал типа:
+
+    ```typescript
+      /*
+        fetchData ожидает два аргумента
+        url - string
+        method - "GET" | "POST" (литеральный тип)
+      */
+      const fetchData = (url: string, method: "GET" | "POST"): void => {
+        console.log(method);
+      };
+      
+      const reqOptions = {
+        url: "https://someurl.com",
+        method: "GET",
+      } as const; // Сделали объект литералом типа
+      /*
+        ПС: Несмотря на то, что это литерал
+        св-ва будут расцениваться как строки(изначальный тип), и конфликта с ф-й fetchData не будет
+      */
+      
+      fetchData(reqOptions.url, reqOptions.method);
+    ```
+
 <hr>
 <br>
 <br>
@@ -483,8 +557,28 @@
 
 <br>
 
-- [ ] `Литеральные типа` - позволяют задач для типа конкретное значение.
+- [ ] `Литеральные типа` - позволяют задать для типа конкретное значение.
 - [ ] Их можно так же комбинировать с примитивными типами. `number | "Hello world"`
 
+```typescript
+  let someStr: "hello" | "world" = "hello";
+
+  someStr = "world"; // OK
+  someStr = "aboba"; // Error
+```
+
+```typescript
+  function logMessage(name: string, message: "hello" | "goodbye"): void {
+    console.log(`${message} ${name}`);
+  }
+  
+  logMessage("aboba", "hello"); // hello aboba (OK)
+  logMessage("Tomas", "hi"); // (Error) "hi" !== "hello" | "goodbye"
+```
+
 ![image](https://github.com/acidshotgun/typescript-repeat/assets/117285472/d8719a9d-b249-438d-89e0-3bb5826e9252)
+
+<br>
+
+<h3>+ Предположения типов литералов</h3>
 
