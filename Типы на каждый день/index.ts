@@ -1,10 +1,16 @@
-let num: number = 50;
-let str: string = "hello";
-let bool: boolean = true;
+/*
+  fetchData ожидает два аргумента
+  url - string
+  method - "GET" | "POST" (литеральный тип)
+*/
+const fetchData = (url: string, method: "GET" | "POST"): void => {
+  console.log(method);
+};
 
-let arr: number[] = [1, 2, 3, 4];
+const reqOptions = {
+  url: "https://someurl.com",
+  method: "GET",
+} as const;
 
-arr.push(10); // ок
-arr.push(str); // ошибка
-
-const test = <T>(arg: T): T => arg.length;
+fetchData("https://my-api/v2/users", "GET");
+fetchData(reqOptions.url, reqOptions.method);
