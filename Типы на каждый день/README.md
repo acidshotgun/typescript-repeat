@@ -582,3 +582,26 @@
 
 <h3>+ Предположения типов литералов</h3>
 
+<hr>
+<br>
+<br>
+
+<h2>null и undefined</h2>
+
+<br>
+
+<h3>+ Оператор утверждения ненулевого значения (non-null assertion operator)</h3>
+
+- [ ] В ситуации, когда мы уверены, что выражение не будет равно `null` или `undefined` `TypeScript` предоставляет специальный синтаксис.
+- [ ] Указание `!` после выражения означает, что данное выражение не может быть нулевым, т.е. иметь значение `null` или `undefined`:
+
+```typescript
+  // Аргумент num1 - опциональный
+  function someFunc(str?: string): string {
+    // Изначально будет ошибка == Возможно, "str" имеет значение undefined.
+    // "!" - говорит, что тут точно не будет null | undefined
+    return str!.toUpperCase();
+  }
+  
+  console.log(someFunc("hello world"));
+```
