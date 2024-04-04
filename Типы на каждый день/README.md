@@ -36,6 +36,9 @@
   const boolArray: boolean[] = [true, false, true];
   
   const arrNumsArray: number[][] = [[1,2,3], [1,2,3]] // массив массивов
+
+  const diffArray: (number | string)[] = [5, 6, "string", 99, "hello"] // массив разных значений
+  let someArrThree: Array<number | string[]> = [20, ["hello", "string"]]; // аналог предыдущего
   
   // Можно встретить такое
   const numsArrayTwo: Array<number> = [1, 2, 3, 4, 5];
